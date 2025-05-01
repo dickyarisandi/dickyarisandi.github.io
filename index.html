@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Professional Portfolio</title>
+    <style>
+        :root {
+            --primary-color: #4a6fa5;
+            --secondary-color: #166088;
+            --accent-color: #4fc3dc;
+            --text-color: #333;
+            --light-bg: #f5f5f5;
+            --white: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            padding: 100px 0 70px;
+            text-align: center;
+        }
+        
+        .profile-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--white);
+            background-color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 60px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        
+        .social-links a {
+            color: var(--white);
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            transform: translateY(-3px);
+        }
+        
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        section {
+            margin-bottom: 60px;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+        
+        .about-content {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+        }
+        
+        .about-text {
+            flex: 2;
+        }
+        
+        .skills {
+            flex: 1;
+            background-color: var(--white);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .skill-tag {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 5px 10px;
+            border-radius: 20px;
+            margin: 5px;
+            font-size: 0.9rem;
+        }
+        
+        .projects {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .project-card {
+            display: flex;
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .project-img {
+            flex: 0 0 300px;
+            background-color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 32px;
+        }
+        
+        .project-info {
+            flex: 1;
+            padding: 30px;
+        }
+        
+        @media (max-width: 768px) {
+            .project-card {
+                flex-direction: column;
+            }
+            
+            .project-img {
+                flex: 0 0 200px;
+                width: 100%;
+            }
+        }
+        
+        .project-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-top: 15px;
+        }
+        
+        .project-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            margin-top: 15px;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+        
+        .project-button:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        .experience-item {
+            margin-bottom: 30px;
+            background-color: var(--white);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .experience-title {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+        
+        .experience-company {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .experience-date {
+            color: #777;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        button {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+        
+        button:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        footer {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 40px;
+        }
+        
+        @media (max-width: 768px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .projects {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="profile-container">
+            <div class="profile-img">
+                <span>DA</span>
+            </div>
+            <h1>Dicky Arisandi</h1>
+            <p class="tagline">Software Engineer</p>
+            <div class="social-links">
+                <a href="#" title="GitHub"><i>GitHub</i></a>
+                <a href="#" title="LinkedIn"><i>LinkedIn</i></a>
+                <a href="#" title="Email"><i>Email</i></a>
+            </div>
+        </div>
+    </header>
+    
+    <main>
+        <section id="about">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I am a Software Engineer with a specialization that includes quickly learning new skills, analytical skills, and problem-solving. I still enthusiastically use programming languages, frameworks, or other principles that I can integrate into coding.</p>
+                </div>
+            </div>
+
+            </div>
+        </section>
+        
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="projects">
+                <div class="project-card">
+                    <div class="project-img">Everpro</div>
+                    <div class="project-info">
+                        <h3 class="project-title">Everpro</h3>
+                        <p>A fully responsive e-commerce platform with product filtering, cart functionality, and secure payment processing.</p>
+                        <a href="#project1" class="project-button">View Project</a>
+        
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">Project 2</div>
+                    <div class="project-info">
+                        <h3 class="project-title">Task Management App</h3>
+                        <p>A productivity tool that helps users organize tasks, set priorities, and track progress with intuitive UI.</p>
+                        <a href="#project2" class="project-button">View Project</a>
+        
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">Project 3</div>
+                    <div class="project-info">
+                        <h3 class="project-title">Portfolio Website</h3>
+                        <p>A custom-designed portfolio website showcasing projects and skills with smooth animations.</p>
+                        <a href="#project3" class="project-button">View Project</a>
+        
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="experience">
+            <h2>Experience</h2>
+            <div class="experience-item">
+                <h3 class="experience-title">Senior Web Developer</h3>
+                <p class="experience-company">Company Name</p>
+                <p class="experience-date">January 2022 - Present</p>
+                <p>Led development of responsive web applications, collaborated with design and marketing teams to implement new features, and optimized website performance resulting in 30% faster load times.</p>
+            </div>
+            
+            <div class="experience-item">
+                <h3 class="experience-title">Web Developer</h3>
+                <p class="experience-company">Previous Company</p>
+                <p class="experience-date">June 2019 - December 2021</p>
+                <p>Developed and maintained client websites, implemented responsive designs, and worked with a team to deliver projects on tight deadlines.</p>
+            </div>
+        </section>
+        
+        <section id="skills">
+            <h2>Skills</h2>
+            <div class="skills" style="max-width: 600px; margin: 0 auto;">
+                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;">
+                    <span class="skill-tag">HTML5</span>
+                    <span class="skill-tag">CSS3</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">React</span>
+                    <span class="skill-tag">Node.js</span>
+                    <span class="skill-tag">UI/UX Design</span>
+                    <span class="skill-tag">Responsive Design</span>
+                    <span class="skill-tag">Git</span>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 Dicky Arisandi. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

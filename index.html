@@ -569,6 +569,15 @@
             justify-content: center; /* Horizontal center untuk 'contain' */
         }
 
+        .profile-img {
+            width: 150px; /* Sesuaikan ukurannya */
+            height: 150px; /* Sesuaikan ukurannya */
+            border-radius: 50%; /* Membuat gambar menjadi bundar */
+            object-fit: cover; /* Memastikan gambar mengisi ruang tanpa distorsi */
+            border: 3px solid white; /* Contoh jika ada border */
+            box-shadow: 0 0 10px rgba(0,0,0,0.2); /* Contoh jika ada bayangan */
+        }
+
         /* ... (Sisa CSS Anda) ... */
 
     </style>
@@ -592,21 +601,18 @@
 
     <header id="home">
         <div class="profile-container">
-            <div class="profile-img-wrapper">
-                <div class="profile-img">
-                    DA
-                </div>
-            </div>
+            <img src="./my-photo.jpeg" alt="Foto Profil Dicky Arisandi" class="profile-img">
+
             <h1>Dicky Arisandi</h1>
             <p class="tagline">Software Engineer | Web Developer | Tech Enthusiast</p>
             <div class="social-links">
                 <a href="https://github.com/dickyarisandi" title="GitHub" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
                 <a href="https://www.linkedin.com/in/dickyarishm/" title="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
-                <a href="dickyarisandihm4@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+                <a href="mailto:dickyarisandihm4@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
             </div>
         </div>
     </header>
-    
+
     <main>
         <section id="about">
             <h2>About Me</h2>
@@ -614,7 +620,7 @@
                 <div class="about-text">
                     <p>Hello! I'm Dicky Arisandi, a passionate Software Engineer based in Sidoarjo, East Java, Indonesia. I specialize in developing high-quality web applications with a strong focus on user experience and efficient code.</p>
                     <p>My journey in tech began with a fascination for how software can solve real-world problems. I thrive on learning new technologies and continuously honing my skills in areas like back-end systems using Node.js/Golang, and database management. I'm adept at analytical thinking and creative problem-solving, always eager to tackle new challenges and build impactful solutions.</p>
-                    <p>When I'm not coding, I enjoy exploring new tech trends, or a non-tech hobby like playing game and culinary.</p>
+                    <p>When I'm not coding, I enjoy exploring new tech trends, or a non-tech hobby like playing game and foodie.</p>
                 </div>
                 </div>
         </section>
